@@ -1,0 +1,51 @@
+{
+  "connection": "default",
+  "collectionName": "growers",
+  "info": {
+    "name": "growers",
+    "description": "growers of the users"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": [
+      "created_at",
+      "updated_at"
+    ],
+    "comment": ""
+  },
+  "attributes": {
+    "Name": {
+      "required": true,
+      "type": "string"
+    },
+    "address": {
+      "required": true,
+      "type": "string"
+    },
+    "creationDate": {
+      "default": "2020-01-17T00:00:00.000Z",
+      "required": true,
+      "type": "date"
+    },
+    "image": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload"
+    },
+    "orders": {
+      "unique": true,
+      "type": "json"
+    },
+    "Phone": {
+      "maxLength": 11,
+      "required": true,
+      "unique": true,
+      "minLength": 11,
+      "type": "string"
+    },
+    "user": {
+      "model": "users",
+      "via": "grower"
+    }
+  }
+}

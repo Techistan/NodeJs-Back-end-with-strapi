@@ -1,0 +1,46 @@
+{
+  "connection": "default",
+  "collectionName": "users",
+  "info": {
+    "name": "users",
+    "description": "these are the users of the project"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": [
+      "created_at",
+      "updated_at"
+    ],
+    "comment": ""
+  },
+  "attributes": {
+    "Name": {
+      "type": "text",
+      "minLength": 3,
+      "required": true
+    },
+    "password": {
+      "required": true,
+      "type": "password"
+    },
+    "image": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload"
+    },
+    "description": {
+      "type": "text"
+    },
+    "Phone": {
+      "maxLength": 11,
+      "required": true,
+      "unique": true,
+      "minLength": 11,
+      "type": "string"
+    },
+    "grower": {
+      "model": "growers",
+      "via": "user"
+    }
+  }
+}
